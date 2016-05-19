@@ -1,0 +1,46 @@
+@import "https://fonts.googleapis.com/css?family=Lato:100";
+ html, body {
+     height: 100%;
+ }
+
+body {
+
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    display: table;
+    font-weight: 100;
+    font-family: 'Lato';
+    font-size: 30px;
+}
+h1{
+    color: #ac2925;
+
+}
+
+div.acti{
+    text-align: center;
+
+}
+.acti ul
+{
+    display: inline-block;
+    list-style: decimal;
+}
+.acti a{
+    text-decoration: none;
+    color: black;
+}
+.acti a:hover{
+    color: #ac2925 ;
+border-bottom: none;
+}
+.acti ul li
+{
+    float: left;
+    margin-right: 100px;
+}
+br
+{
+    clear: left;
+}
