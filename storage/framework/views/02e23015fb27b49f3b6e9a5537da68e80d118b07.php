@@ -1,8 +1,7 @@
 <?php $__env->startSection('content'); ?>
     <div>
-        <h1>I greet <?php echo e($name); ?>!</h1>
-        <a href="<?php echo e(route('home')); ?>">home</a>
-
+        <h1>I <?php echo e($action); ?> <?php echo e($name); ?>!</h1>
+        <a href="<?php echo e(route('home')); ?>"></a>
     </div>
 
 <?php $__env->stopSection(); ?>

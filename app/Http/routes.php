@@ -11,9 +11,10 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 
 Route::get('/greet/{name?}', function ($name="you") {
@@ -27,3 +28,14 @@ Route::get('/hug', function () {
 Route::get('/kiss', function () {
     return view('actions.kiss');
 })->name('kiss');
+
+Route::post('/benice',function(\Illuminate\Http\Request $req){
+    if(isset($req['action']) && $req['name']){
+        if(strlen($req['name'])>0){
+            return view('actions.nice',['action' => $req['action'] ,'name' => $req['name']]);
+        }
+        return redirect()->back();
+
+    }
+    return redirect()->back();
+})->name('benice');

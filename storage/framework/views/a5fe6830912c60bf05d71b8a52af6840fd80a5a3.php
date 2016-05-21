@@ -1,6 +1,7 @@
 <?php $__env->startSection('content'); ?>
     <div>
         <h1>I hug you!</h1>
+        <a href="<?php echo e(route('home')); ?>"></a>
 
     </div>
 

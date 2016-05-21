@@ -1,7 +1,7 @@
 <?php $__env->startSection('content'); ?>
     <div>
         <h1>I kiss you!</h1>
-
+        <a href="<?php echo e(route('home')); ?>"></a>
     </div>
 
 <?php $__env->stopSection(); ?>
