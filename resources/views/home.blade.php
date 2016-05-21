@@ -9,9 +9,9 @@
     </p>
     <div class="acti">
         <ul>
-            <li><a href="{{ Route('greet') }}">greet</a></li>
-            <li><a href="{{ Route('hug') }}">hug</a></li>
-            <li><a href="{{ Route('kiss') }}">kiss</a></li>
+            <li><a href="{{ route('niceaction',['action'=>'greet']) }}">greet</a></li>
+            <li><a href="{{ route('niceaction',['action'=>'hug']) }}">hug</a></li>
+            <li><a href="{{ route('niceaction',['action'=>'kiss']) }}">kiss</a></li>
         </ul>
     </div>
 

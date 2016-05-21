@@ -6,9 +6,9 @@
     </p>
     <div class="acti">
         <ul>
-            <li><a href="<?php echo e(Route('greet')); ?>">greet</a></li>
-            <li><a href="<?php echo e(Route('hug')); ?>">hug</a></li>
-            <li><a href="<?php echo e(Route('kiss')); ?>">kiss</a></li>
+            <li><a href="<?php echo e(route('niceaction',['action'=>'greet'])); ?>">greet</a></li>
+            <li><a href="<?php echo e(route('niceaction',['action'=>'hug'])); ?>">hug</a></li>
+            <li><a href="<?php echo e(route('niceaction',['action'=>'kiss'])); ?>">kiss</a></li>
         </ul>
     </div>
 

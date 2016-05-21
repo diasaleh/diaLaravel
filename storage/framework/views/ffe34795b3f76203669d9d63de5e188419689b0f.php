@@ -1,6 +1,11 @@
 <?php $__env->startSection('content'); ?>
     <div>
-        <h1>I greet <?php echo e($name); ?>!</h1>
+        <?php if($name == null): ?>
+            <h1>I greet Dia!</h1>
+
+        <?php else: ?>
+            <h1>I greet <?php echo e($name); ?>!</h1>
+        <?php endif; ?>
         <a href="<?php echo e(route('home')); ?>">home</a>
 
     </div>

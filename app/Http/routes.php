@@ -16,26 +16,14 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::group(['prefix' => 'do'], function(){
+    Route::get('/{action}/{name?}', [
+        'uses' => 'niceActionController@getNiceAction',
+        'as' => 'niceaction'
+    ]);
 
-Route::get('/greet/{name?}', function ($name="you") {
-    return view('actions.greet',['name'=>$name]);
-})->name('greet');
-
-Route::get('/hug', function () {
-    return view('actions.hug');
-})->name('hug');
-
-Route::get('/kiss', function () {
-    return view('actions.kiss');
-})->name('kiss');
-
-Route::post('/benice',function(\Illuminate\Http\Request $req){
-    if(isset($req['action']) && $req['name']){
-        if(strlen($req['name'])>0){
-            return view('actions.nice',['action' => $req['action'] ,'name' => $req['name']]);
-        }
-        return redirect()->back();
-
-    }
-    return redirect()->back();
-})->name('benice');
+    Route::post('/',[
+        'uses' => 'niceActionController@postNiceAction',
+        'as' => 'benice'
+    ]);
+});
