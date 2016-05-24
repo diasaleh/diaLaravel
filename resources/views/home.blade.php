@@ -9,9 +9,10 @@
     </p>
     <div class="acti">
         <ul>
-            <li><a href="{{ route('niceaction',['action'=>'greet']) }}">greet</a></li>
-            <li><a href="{{ route('niceaction',['action'=>'hug']) }}">hug</a></li>
-            <li><a href="{{ route('niceaction',['action'=>'kiss']) }}">kiss</a></li>
+            @foreach($actions as $action)
+                <li><a href="{{ route('niceaction',['action'=>lcfirst($action->name)]) }}">{{$action->name}}</a></li>
+            @endforeach
+
         </ul>
     </div>
 

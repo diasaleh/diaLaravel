@@ -13,9 +13,14 @@
 
 
 
-    Route::get('/', function () {
-        return view('home');
-    })->name('home');
+Route::group(['middleware' => ['web']], function () {
+    //
+    Route::get('/', [
+        'uses' => 'niceActionController@getHome',
+        'as' => 'home'
+    ]);
+});
+
 
     Route::group(['prefix' => 'do'], function(){
         Route::get('/{action}/{name?}', [

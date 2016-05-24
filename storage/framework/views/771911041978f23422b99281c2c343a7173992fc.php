@@ -6,9 +6,10 @@
     </p>
     <div class="acti">
         <ul>
-            <li><a href="<?php echo e(route('niceaction',['action'=>'greet'])); ?>">greet</a></li>
-            <li><a href="<?php echo e(route('niceaction',['action'=>'hug'])); ?>">hug</a></li>
-            <li><a href="<?php echo e(route('niceaction',['action'=>'kiss'])); ?>">kiss</a></li>
+            <?php foreach($actions as $action): ?>
+                <li><a href="<?php echo e(route('niceaction',['action'=>lcfirst($action->name)])); ?>"><?php echo e($action->name); ?></a></li>
+            <?php endforeach; ?>
+
         </ul>
     </div>
 
