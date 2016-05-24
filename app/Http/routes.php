@@ -12,18 +12,21 @@
 */
 
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
 
-Route::group(['prefix' => 'do'], function(){
-    Route::get('/{action}/{name?}', [
-        'uses' => 'niceActionController@getNiceAction',
-        'as' => 'niceaction'
-    ]);
+    Route::get('/', function () {
+        return view('home');
+    })->name('home');
 
-    Route::post('/',[
-        'uses' => 'niceActionController@postNiceAction',
-        'as' => 'benice'
-    ]);
-});
+    Route::group(['prefix' => 'do'], function(){
+        Route::get('/{action}/{name?}', [
+            'uses' => 'niceActionController@getNiceAction',
+            'as' => 'niceaction'
+        ]);
+
+        Route::post('/',[
+            'uses' => 'niceActionController@postNiceAction',
+            'as' => 'benice'
+        ]);
+    });
+
+

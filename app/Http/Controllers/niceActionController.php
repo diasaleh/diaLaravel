@@ -10,14 +10,14 @@ class niceActionController extends Controller{
     }
 
     public function postNiceAction(\Illuminate\Http\Request $req) {
-        if(isset($req['action']) && $req['name']){
-            if(strlen($req['name'])>0){
-                return view('actions.nice',['action' => $req['action'] ,'name' => $this->transformName($req['name'])]);
-            }
-            return redirect()->back();
 
-        }
-        return redirect()->back();
+        $this->validate($req,[
+           'action' => 'required',
+            'name' => 'required|alpha',
+        ]);
+
+        return view('actions.nice',['action' => $req['action'] ,'name' => $this->transformName($req['name'])]);
+
     }
 
     private function transformName($name){

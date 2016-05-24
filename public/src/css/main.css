@@ -44,3 +44,10 @@ br
 {
     clear: left;
 }
+.error{
+    background: darkred;
+    color: honeydew;
+    margin-right: 20%;
+    margin-left: 20%;
+    padding: 0px 0;
+}

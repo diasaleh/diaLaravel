@@ -17,6 +17,16 @@
 
 </div>
 <br>
+
+@if(count($errors) > 0)
+    <div class="error">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form action="{{ route('benice') }}" method="post">
     <label for="select">I want to...</label>
     <select id="select" name="action">

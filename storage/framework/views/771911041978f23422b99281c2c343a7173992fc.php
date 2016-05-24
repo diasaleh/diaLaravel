@@ -14,6 +14,16 @@
 
 </div>
 <br>
+
+<?php if(count($errors) > 0): ?>
+    <div class="error">
+        <ul>
+            <?php foreach($errors->all() as $error): ?>
+                <li><?php echo e($error); ?></li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>
 <form action="<?php echo e(route('benice')); ?>" method="post">
     <label for="select">I want to...</label>
     <select id="select" name="action">
