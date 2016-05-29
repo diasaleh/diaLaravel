@@ -14,7 +14,10 @@ class niceActionController extends Controller{
 
 
     public function getNiceAction($action, $name = null){
-        return view('actions.'.$action,['name' => $name]);
+        if($name == null){
+            $name = "You";
+        }
+        return view('actions.nice',['action' => $action,'name' => $name]);
     }
 
     public function postNiceAction(\Illuminate\Http\Request $req) {
