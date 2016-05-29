@@ -28,9 +28,9 @@ Route::group(['middleware' => ['web']], function () {
             'as' => 'niceaction'
         ]);
 
-        Route::post('/',[
-            'uses' => 'niceActionController@postNiceAction',
-            'as' => 'benice'
+        Route::post('/add_action',[
+            'uses' => 'niceActionController@postInsertNiceAction',
+            'as' => 'add_action'
         ]);
     });
 

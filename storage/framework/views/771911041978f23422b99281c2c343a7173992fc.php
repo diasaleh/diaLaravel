@@ -25,14 +25,12 @@
         </ul>
     </div>
 <?php endif; ?>
-<form action="<?php echo e(route('benice')); ?>" method="post">
-    <label for="select">I want to...</label>
-    <select id="select" name="action">
-        <option value="greet">Greet</option>
-        <option value="hug">Hug</option>
-        <option value="kiss">Kiss</option>
-    </select>
-    <input type="text" name="name">
+<form action="<?php echo e(route('add_action')); ?>" method="post">
+    <label for="name">name:</label>
+    <input type="text" name="name" id="name">
+    <label for="niceness">niceness:</label>
+
+    <input type="text" name="niceness" id="niceness">
     <button type="submit">Do a nice action!</button>
     <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 </form>
