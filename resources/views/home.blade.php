@@ -11,7 +11,7 @@
         <ul>
             @foreach($actions as $action)
                 <li><a href="{{ route('niceaction',['action'=>lcfirst($action->name)]) }}">{{$action->name}}</a></li>
-            @endforeach
+            @endforeach  
 
         </ul>
     </div>
