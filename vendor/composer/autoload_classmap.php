@@ -6,6 +6,8 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CategoriesNiceActions' => $baseDir . '/database/migrations/2016_05_30_220144_categories_nice_actions.php',
+    'CreateCategoriesTable' => $baseDir . '/database/migrations/2016_05_30_220051_create_categories_table.php',
     'CreateNiceActionLogsTable' => $baseDir . '/database/migrations/2016_05_30_174709_create_nice_action_logs_table.php',
     'CreateNiceActionsTable' => $baseDir . '/database/migrations/2016_05_24_220142_create_nice_actions_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',

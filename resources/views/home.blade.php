@@ -11,7 +11,7 @@
         <ul>
             @foreach($actions as $action)
                 <li><a href="{{ route('niceaction',['action'=>lcfirst($action->name)]) }}">{{$action->name}}</a></li>
-            @endforeach  
+            @endforeach
 
         </ul>
     </div>
@@ -44,7 +44,14 @@
     <br>
     <ul>
         @foreach($logged_actions as $logged_action)
-            <li>{{ $logged_action->nice_action->name }}</li>
+            <li>
+                {{ $logged_action->nice_action->name }}
+                @foreach($logged_action->nice_action->categories as $category)
+                    {{ $category->name }}
+
+                @endforeach
+            </li>
+
         @endforeach
     </ul>
 @endsection

@@ -20,9 +20,21 @@ class niceActionController extends Controller{
         if($name == null){
             $name = "You";
         }
-        $nice_action = NiceAction::where('name',$action)->first();
-        $nice_action_log = new NiceActionLog();
-        $nice_action->logged_actions()->save($nice_action_log);
+        $tid =  NiceAction::where('name',$action)->first()->id;
+        echo $tid;
+        $t = NiceActionLog::where('nice_action_id',$tid);
+
+        if ($t->count() > 0) {
+            echo "not null";
+
+
+        } else{
+            echo "null";
+            $nice_action = NiceAction::where('name',$action)->first();
+            $nice_action_log = new NiceActionLog();
+            $nice_action->logged_actions()->save($nice_action_log);
+        }
+
         return view('actions.nice',['action' => $action,'name' => $name]);
     }
 

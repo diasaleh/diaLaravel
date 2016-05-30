@@ -13879,3 +13879,15 @@ Stack trace:
 #86 /Applications/MAMP/htdocs/diaLaravel/vendor/laravel/framework/src/Illuminate/Foundation/Http/Kernel.php(99): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #87 /Applications/MAMP/htdocs/diaLaravel/public/index.php(53): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #88 {main}  
+[2016-05-30 22:11:22] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'parse error' in /Applications/MAMP/htdocs/diaLaravel/database/migrations/2016_05_30_220051_create_categories_table.php:16
+Stack trace:
+#0 {main}  
+[2016-05-30 22:12:15] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'parse error' in /Applications/MAMP/htdocs/diaLaravel/database/migrations/2016_05_30_220051_create_categories_table.php:16
+Stack trace:
+#0 {main}  
+[2016-05-30 22:18:42] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'parse error' in /Applications/MAMP/htdocs/diaLaravel/database/seeds/NiceActionSeeder.php:16
+Stack trace:
+#0 {main}  
+[2016-05-30 22:18:48] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'parse error' in /Applications/MAMP/htdocs/diaLaravel/database/seeds/NiceActionSeeder.php:16
+Stack trace:
+#0 {main}  

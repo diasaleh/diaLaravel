@@ -41,7 +41,16 @@
     <br>
     <ul>
         <?php foreach($logged_actions as $logged_action): ?>
-            <li><?php echo e($logged_action->nice_action->name); ?></li>
+            <li>
+                <?php echo e($logged_action->nice_action->name); ?>
+
+                <?php foreach($logged_action->nice_action->categories as $category): ?>
+                    <?php echo e($category->name); ?>
+
+
+                <?php endforeach; ?>
+            </li>
+
         <?php endforeach; ?>
     </ul>
 <?php $__env->stopSection(); ?>
