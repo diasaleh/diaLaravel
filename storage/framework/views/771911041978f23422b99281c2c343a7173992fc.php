@@ -33,7 +33,17 @@
     <input type="text" name="niceness" id="niceness">
     <button type="submit">Do a nice action!</button>
     <input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
+
 </form>
+
+    <br>
+    <br>
+    <br>
+    <ul>
+        <?php foreach($logged_actions as $logged_action): ?>
+            <li><?php echo e($logged_action->nice_action->name); ?></li>
+        <?php endforeach; ?>
+    </ul>
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

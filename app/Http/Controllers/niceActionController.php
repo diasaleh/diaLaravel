@@ -4,12 +4,15 @@
 namespace App\Http\Controllers;
 use \Illuminate\Http\Request;
 use App\NiceAction;
+use App\NiceActionLog;
 
 class niceActionController extends Controller{
 
     public function getHome(){
         $actions = NiceAction::all();
-        return view('home',['actions' => $actions]);
+        $logged_actions = NiceActionLog::all();
+
+        return view('home',['actions' => $actions,'logged_actions' => $logged_actions]);
     }
 
 
@@ -17,13 +20,16 @@ class niceActionController extends Controller{
         if($name == null){
             $name = "You";
         }
+        $nice_action = NiceAction::where('name',$action)->first();
+        $nice_action_log = new NiceActionLog();
+        $nice_action->logged_actions()->save($nice_action_log);
         return view('actions.nice',['action' => $action,'name' => $name]);
     }
 
     public function postInsertNiceAction(\Illuminate\Http\Request $req) {
 
         $this->validate($req,[
-             'name' => 'required|alpha',
+             'name' => 'required|alpha|unique:nice_actions',
              'niceness' => 'required|numeric',
         ]);
 
@@ -33,7 +39,7 @@ class niceActionController extends Controller{
         $action->save();
 
         $actions = NiceAction::all();
-        return redirect()->route('home',['actions' => $actions]); 
+        return redirect()->route('home',['actions' => $actions]);
 
     }
 

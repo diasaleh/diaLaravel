@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'CreateNiceActionLogsTable' => $baseDir . '/database/migrations/2016_05_30_174709_create_nice_action_logs_table.php',
     'CreateNiceActionsTable' => $baseDir . '/database/migrations/2016_05_24_220142_create_nice_actions_table.php',
     'DatabaseSeeder' => $baseDir . '/database/seeds/DatabaseSeeder.php',
     'File_Iterator' => $vendorDir . '/phpunit/php-file-iterator/src/Iterator.php',

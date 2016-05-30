@@ -36,5 +36,15 @@
     <input type="text" name="niceness" id="niceness">
     <button type="submit">Do a nice action!</button>
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
 </form>
+
+    <br>
+    <br>
+    <br>
+    <ul>
+        @foreach($logged_actions as $logged_action)
+            <li>{{ $logged_action->nice_action->name }}</li>
+        @endforeach
+    </ul>
 @endsection
