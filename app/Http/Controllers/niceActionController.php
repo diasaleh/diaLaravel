@@ -5,14 +5,20 @@ namespace App\Http\Controllers;
 use \Illuminate\Http\Request;
 use App\NiceAction;
 use App\NiceActionLog;
+use DB;
 
 class niceActionController extends Controller{
 
     public function getHome(){
-        $actions = NiceAction::all();
-        $logged_actions = NiceActionLog::all();
-
-        return view('home',['actions' => $actions,'logged_actions' => $logged_actions]);
+        $actions = NiceAction::orderBy('niceness','desc')->get();
+        $logged_actions = NiceActionLog::whereHas('nice_action', function($qu){
+            $qu->where('name','=','Kiss');
+        })->get();
+        $query = DB::table('nice_action_logs')
+                    ->join('nice_actions','nice_action_logs.nice_action_id','=','nice_actions.id')
+                    ->where('nice_actions.name','=','Kiss')
+                    ->get();
+        return view('home',['actions' => $actions,'logged_actions' => $logged_actions,'db' => $query]);
     }
 
 
@@ -20,20 +26,11 @@ class niceActionController extends Controller{
         if($name == null){
             $name = "You";
         }
-        $tid =  NiceAction::where('name',$action)->first()->id;
-        echo $tid;
-        $t = NiceActionLog::where('nice_action_id',$tid);
-
-        if ($t->count() > 0) {
-            echo "not null";
-
-
-        } else{
-            echo "null";
+     
             $nice_action = NiceAction::where('name',$action)->first();
             $nice_action_log = new NiceActionLog();
             $nice_action->logged_actions()->save($nice_action_log);
-        }
+
 
         return view('actions.nice',['action' => $action,'name' => $name]);
     }

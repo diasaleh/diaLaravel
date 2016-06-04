@@ -45,7 +45,7 @@
                 <?php echo e($logged_action->nice_action->name); ?>
 
                 <?php foreach($logged_action->nice_action->categories as $category): ?>
-                    <?php echo e($category->name); ?>
+                    <?php echo e("[" .$category->name ."]"); ?>
 
 
                 <?php endforeach; ?>
@@ -53,6 +53,9 @@
 
         <?php endforeach; ?>
     </ul>
+
+<?php echo e(dd($db)); ?>
+
 <?php $__env->stopSection(); ?>
 
 <?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

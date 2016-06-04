@@ -47,11 +47,13 @@
             <li>
                 {{ $logged_action->nice_action->name }}
                 @foreach($logged_action->nice_action->categories as $category)
-                    {{ $category->name }}
+                    {{"[" .$category->name ."]"}}
 
                 @endforeach
             </li>
 
         @endforeach
     </ul>
+
+{{ dd($db) }}
 @endsection
